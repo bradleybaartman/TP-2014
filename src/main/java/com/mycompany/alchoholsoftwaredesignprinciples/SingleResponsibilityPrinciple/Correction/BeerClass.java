@@ -8,7 +8,7 @@ package com.mycompany.alchoholsoftwaredesignprinciples.SingleResponsibilityPrinc
  *
  * @author Bradz
  */
-public class BeerClass extends AlchoholClass implements BeerInterface{
+public class BeerClass extends AlcoholClass implements AlcoholInterface{
     
     private String bName;
     private String bType;
