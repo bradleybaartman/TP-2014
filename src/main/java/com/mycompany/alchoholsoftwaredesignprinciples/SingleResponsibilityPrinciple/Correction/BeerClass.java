@@ -43,7 +43,7 @@ public class BeerClass extends AlchoholClass implements BeerInterface{
         this.bSize = bSize;
     }
     
-    public void setConType(String containerType)
+    public void setConType(String bContainerType)
     {
          this.bContainerType = bContainerType;
     }
