@@ -6,24 +6,33 @@ package com.mycompany.config;
 
 
 import com.mycompany.alchoholsoftwaredesignprinciples.PrincipleofLeastKnowledge.Correction.BeerClass;
-import com.mycompany.alchoholsoftwaredesignprinciples.PrincipleofLeastKnowledge.Correction.BeerInterface;
+import com.mycompany.alchoholsoftwaredesignprinciples.SingleResponsibilityPrinciple.Correction.SpiritsClass;
 import org.springframework.context.annotation.Bean;
 
 /**
  *
  * @author Bradz
  */
-public class BeerConfig {
+public class AlcoholConfig {
     
     /**
      *
      * @return
      */
-    @Bean(name = "beer1")
-   
+    @Bean(name = "alcoholBean")   
     public BeerClass getMyClass()
     {
         return new BeerClass();
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Bean(name = "spiritsBean") 
+    public SpiritsClass getSpiritsClass()
+    {
+        return new SpiritsClass();
     }
     
 }

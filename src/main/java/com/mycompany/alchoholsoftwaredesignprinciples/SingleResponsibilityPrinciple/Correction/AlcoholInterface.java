@@ -8,7 +8,7 @@ package com.mycompany.alchoholsoftwaredesignprinciples.SingleResponsibilityPrinc
  *
  * @author Bradz
  */
-public interface BeerInterface {
+public interface AlcoholInterface {
     public String getName();
     public String getType();
     public int getSize()  ;      

@@ -8,13 +8,13 @@ package com.mycompany.alchoholsoftwaredesignprinciples.SingleResponsibilityPrinc
  *
  * @author Bradz
  */
-public class AlchoholClass {
+public class AlcoholClass {
     
     private String beverageName;
     
-    public AlchoholClass(){}
+    public AlcoholClass(){}
     
-    public AlchoholClass(String beverageName)
+    public AlcoholClass(String beverageName)
     {
         this.beverageName = beverageName;
     }
