@@ -54,7 +54,52 @@
      <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-        </dependency>      
+        </dependency>   
+         <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+      </dependency>  
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>4.0.2.RELEASE</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>commons-logging</groupId>
+                  <artifactId>commons-logging</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>1.5.8</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.5.8</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.5.8</version>
+      </dependency>
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>1.2.14</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>4.0.2.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <version>1.9.5</version>
+      </dependency>
   </dependencies>
   
    <dependencyManagement>
@@ -68,4 +113,41 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>http://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>http://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
 </project>
