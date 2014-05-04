@@ -8,7 +8,7 @@ package com.mycompany.domainrepository.services.Impl;
 
 import com.mycompany.domainrepository.domain.Beer;
 import com.mycompany.domainrepository.repository.BeerRepository;
-import com.mycompany.domainrepository.services.AlocoholPercentageService;
+import com.mycompany.domainrepository.services.AlcoholPercentageService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Bradz
  */
-public class AlcoholPercentageServiceImpl implements AlocoholPercentageService{
+public class AlcoholPercentageServiceImpl implements AlcoholPercentageService{
     @Autowired
     private BeerRepository beerRepository;
     

@@ -13,6 +13,6 @@ import java.util.List;
  *
  * @author Bradz
  */
-public interface AlocoholPercentageService {
+public interface AlcoholPercentageService {
     public List<Beer> getAlcPerc(double i);
 }
