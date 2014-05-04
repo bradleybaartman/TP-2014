@@ -7,8 +7,8 @@
 package repository;
 
 import com.mycompany.domainrepository.app.conf.ConnectionConfig;
-import com.mycompany.domainrepository.domain.Beer;
-import com.mycompany.domainrepository.repository.BeerRepository;
+import com.mycompany.domainrepository.domain.Whiskey;
+import com.mycompany.domainrepository.repository.WhiskeyRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -22,28 +22,28 @@ import org.testng.annotations.Test;
  *
  * @author Bradz
  */
-public class BeerRepositoryTest {
+public class WhiskeyRepositoryTest {
     public static ApplicationContext ctx;
     private String name;
     private int code;
 
-    private BeerRepository repo;    
+    private WhiskeyRepository repo;    
     
-    public BeerRepositoryTest() {
+    public WhiskeyRepositoryTest() {
     }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-     public void createBeer() {
-         repo = ctx.getBean(BeerRepository.class);
-         Beer b = new Beer.Builder(001)
-                 .bName("Amstel")
-                 .bType("Lager")
-                 .bSize(330)
-                 .bContainerType("Glass")
-                 .bAlcPercent(5.00)
+     public void createWhiskey() {
+         repo = ctx.getBean(WhiskeyRepository.class);
+         Whiskey b = new Whiskey.Builder(001)
+                 .whName("Bell's")
+                 .whType("Scotch Whiskey")
+                 .whSize(750)
+                 .whContainerType("Glass")
+                 .whAlcPercent(43.00)
                  .build();
          repo.save(b);
          code = b.getCode();
@@ -52,39 +52,39 @@ public class BeerRepositoryTest {
      
      }
      
-     @Test(dependsOnMethods = "createBeer")
-     public void readBeer(){
-         repo = ctx.getBean(BeerRepository.class);
-         Beer beer = repo.findOne(code);
-         Assert.assertEquals(beer.getName(), "Amstel");
+     @Test(dependsOnMethods = "createWhiskey")
+     public void readWhiskey(){
+         repo = ctx.getBean(WhiskeyRepository.class);
+         Whiskey whiskey = repo.findOne(code);
+         Assert.assertEquals(whiskey.getName(), "Bell's");
          
      }
      
-    @Test(dependsOnMethods = "readBeer")
-     private void updateBeer(){
-         repo = ctx.getBean(BeerRepository.class);
-         Beer beer = repo.findOne(code);
-         Beer updatedBeer = new Beer.Builder(001)
-                 .beer(beer)
-                 .bType("Lite")
+    @Test(dependsOnMethods = "readWhiskey")
+     private void updateWhiskey(){
+         repo = ctx.getBean(WhiskeyRepository.class);
+         Whiskey whiskey = repo.findOne(code);
+         Whiskey updatedWhiskey = new Whiskey.Builder(001)
+                 .whiskey(whiskey)
+                 .whType("Old Scotch Whiskey")
                  .build();
         
-         repo.save(updatedBeer);
+         repo.save(updatedWhiskey);
          
-         Beer newBeer = repo.findOne(code);
-         Assert.assertEquals(newBeer.getName(), "Amstel");
+         Whiskey newWhiskey = repo.findOne(code);
+         Assert.assertEquals(newWhiskey.getName(), "Bell's");
          
      }
      
-     @Test(dependsOnMethods = "updateBeer")
-     private void deleteBeer(){
-         repo = ctx.getBean(BeerRepository.class);
-         Beer beer = repo.findOne(code);
-         repo.delete(beer);
+     @Test(dependsOnMethods = "updateWhiskey")
+     private void deleteWhiskey(){
+         repo = ctx.getBean(WhiskeyRepository.class);
+         Whiskey whiskey = repo.findOne(code);
+         repo.delete(whiskey);
          
-         Beer deletedBeer = repo.findOne(code);
+         Whiskey deletedWhiskey = repo.findOne(code);
          
-         Assert.assertNull(deletedBeer);
+         Assert.assertNull(deletedWhiskey);
          
          
      }

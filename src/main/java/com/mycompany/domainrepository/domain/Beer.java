@@ -7,6 +7,7 @@
 package com.mycompany.domainrepository.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,15 +21,17 @@ import javax.persistence.Id;
 public class Beer implements Serializable{
     private static final long serialVerionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    
-    private String bName;
+    @GeneratedValue(strategy = GenerationType.AUTO)    
+    @Column(unique = true)
+    private int bCode;
+    private String bName;    
     private String bType;
     private int bSize;
     private String bContainerType;
     private double bAlcPercent;
    
     private Beer(Builder builder) {
+        bCode = builder.bCode;
         bName = builder.bName;
         bType = builder.bType;
         bSize = builder.bSize;
@@ -39,14 +42,26 @@ public class Beer implements Serializable{
     public Beer(){}
     
     public static class Builder{
+        private int bCode;
         private String bName;
         private String bType;
         private int bSize;
         private String bContainerType;
         private double bAlcPercent;
         
-        public Builder(String bName){
-            this.bName = bName;
+        public Builder(int bCode){
+            this.bCode = bCode;
+        }
+        
+        public Builder bCode(int value)
+        {
+            bCode = value;
+            return this;
+        }
+        
+        public Builder bName(String value){
+            this.bName = value;
+            return this;
         }
         
         public Builder bType(String value){
@@ -69,6 +84,7 @@ public class Beer implements Serializable{
             return this;
         }
         public Builder beer(Beer beer){
+            bCode = beer.getCode();
             bName = beer.getName();
             bType = beer.getType();
             bSize = beer.getSize();
@@ -81,6 +97,10 @@ public class Beer implements Serializable{
             return new Beer(this);
         }
         
+    }
+    
+    public int getCode(){
+        return bCode;
     }
        
     public String getName(){
@@ -125,7 +145,7 @@ public class Beer implements Serializable{
 
     @Override
     public String toString() {
-        return "Bradz.Beer class[ Beer name =" + bName + " ]";
+        return "Bradz.Beer class[ Beer code =" + bCode + " ]";
     }
     
 }

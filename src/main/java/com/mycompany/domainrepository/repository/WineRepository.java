@@ -6,13 +6,12 @@
 
 package com.mycompany.domainrepository.repository;
 
-import com.mycompany.domainrepository.domain.Beer;
+import com.mycompany.domainrepository.domain.Wine2;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 /**
  *
  * @author Bradz
  */
-public interface BeerRepository extends JpaRepository<Beer, Integer>{
-    
+public interface WineRepository extends JpaRepository<Wine2, Integer>{
+     
 }
